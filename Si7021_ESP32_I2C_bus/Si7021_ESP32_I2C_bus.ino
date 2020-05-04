@@ -12,7 +12,7 @@ void setup()
 {
   Serial.begin(9600);
   I2Cone.begin(21,22,100000); // SDA pin 21, SCL pin 22, 100kHz frequency
-  I2Ctwo.begin(19,18,400000); // SDA pin 16, SCL pin 17, 400kHz frequency
+  I2Ctwo.begin(19,18,400000); // SDA pin 19, SCL pin 18, 400kHz frequency
 }
 
 void loop() 
@@ -49,6 +49,5 @@ void loop()
   X=(175.72*X_out)/65536;
   X=X-46.85;
   Serial.println(X);
-  
   delay(1000);
 }
