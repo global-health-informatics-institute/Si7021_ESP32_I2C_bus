@@ -17,15 +17,9 @@ void setup()
 
 void loop() 
 {
-
   I2Cone.beginTransmission(ADDR);
   I2Cone.write(COMM);
   I2Cone.endTransmission();
-  
-  I2Ctwo.beginTransmission(ADDR);
-  I2Ctwo.write(COMM);
-  I2Ctwo.endTransmission();
-  
   /**Read data of temperature**/
   I2Cone.requestFrom(ADDR,2);
   if(I2Cone.available()<=2);{
@@ -39,8 +33,11 @@ void loop()
   X=X-46.85;
   Serial.print(X);
   Serial.print(",");
-
-    /**Read data of temperature**/
+  /**communication with second sensor**/
+  I2Ctwo.beginTransmission(ADDR);
+  I2Ctwo.write(COMM);
+  I2Ctwo.endTransmission();
+  /**Read data of temperature**/
   I2Ctwo.requestFrom(ADDR,2);
   if(I2Ctwo.available()<=2);{
     X0 = I2Ctwo.read();
